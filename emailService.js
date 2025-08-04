@@ -1,4 +1,4 @@
-const transporter = require('../config/emailConfig');
+const transporter = require('./emailConfig');
 
 exports.sendBookingEmail = async (booking) => {
   const mailOptions = {
