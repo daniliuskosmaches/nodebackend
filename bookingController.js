@@ -1,5 +1,5 @@
-const Booking = require('../models/Booking');
-const emailService = require('../services/emailService');
+const Booking = require('./Booking');
+const emailService = require('./emailService');
 
 exports.createBooking = async (req, res) => {
   try {
