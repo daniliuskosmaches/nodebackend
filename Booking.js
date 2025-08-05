@@ -1,13 +1,18 @@
 class Booking {
   constructor({ name, phone, email, eventDate, packageType, characters = [], shows = [] }) {
     this.name = name;
-    this.phone = phone;
+    this.phone = this.normalizePhone(phone);
     this.email = email || null;
     this.eventDate = eventDate || null;
     this.packageType = packageType;
     this.characters = characters;
     this.shows = shows;
     this.createdAt = new Date();
+  }
+
+  normalizePhone(phone) {
+    // Удаляем все нецифровые символы
+    return phone.replace(/\D/g, '');
   }
 
   validate() {
@@ -17,8 +22,8 @@ class Booking {
       errors.push("Имя должно содержать минимум 2 символа");
     }
     
-    if (!this.phone || !/^[\d\s+\-()]{7,}$/.test(this.phone)) {
-      errors.push("Укажите корректный телефон");
+    if (!this.phone || this.phone.length < 10) {
+      errors.push("Укажите корректный телефон (минимум 10 цифр)");
     }
     
     if (!this.packageType) {
