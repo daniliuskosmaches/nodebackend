@@ -9,7 +9,7 @@ const app = express();
 
 // Настройка CORS для конкретного домена фронтенда
 const corsOptions = {
-  origin: process.env.FRONTEND_URL || 'https://your-frontend-domain.com',
+  origin: process.env.FRONTEND_URL || 'https://reliable-taiyaki-da604f.netlify.app/',
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   optionsSuccessStatus: 200
